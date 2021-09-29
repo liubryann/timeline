@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+  frontend:
+    container_name: frontend-dev
+    build:
+      context: frontend
+      dockerfile: frontend.dockerfile
+    ports:
+      - 3000:3000
+  backend:
+    container_name: backend-dev
+    ports:
+      - 8080:8080
+    volumes:
+      - ./backend:/app
+    build:
+      context: backend
+      dockerfile: backend.dockerfile
