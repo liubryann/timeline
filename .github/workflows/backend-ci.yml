@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  validate_frontend:
+  validate_backend:
     runs-on: ubuntu-latest
 
     steps:
