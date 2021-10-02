@@ -1,0 +1,24 @@
+name: Backend CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  validate_frontend:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.7
+        working-directory: backend
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.7'
+      - name: Build and run lint on backend
+        working-directory: backend
+        run: |
+          pip3 install -r requirements.txt
+          black --check .
+
